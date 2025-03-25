@@ -1,0 +1,129 @@
+html {
+    background-color: rgb(12, 11, 14);
+}
+
+body {
+    margin: 0 5%;
+    padding: 8%;
+    background-color: rgb(18, 19, 25);
+    color: green;
+    font-family: Terminus;
+}
+
+.unroll {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid green; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+    width: fit-content;
+}
+
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#stylized, #esp, #race {
+    margin: 2%;
+    padding: 2%;
+    border-radius: 1rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 85vw;
+    font-family: "Fira Sans", sans-serif;
+}
+
+#stylized {
+    background: rgb(224,177,255);
+    background: linear-gradient(var(--degrees), var(--myColor1) 0%, var(--myColor2) 50%, var(--myColor3) 100%);
+    transition: --myColor1 1s, --myColor2 1s, --myColor3 1s, --degrees 1s;
+}
+
+span {
+    color: red;
+}
+
+#stylized:hover {
+    --myColor1: rgba(34,193,195,1);
+    --myColor2: rgba(192,45,253,1);
+    --degrees: 0deg;
+    background: rgb(34,193,195);
+    background: linear-gradient(var(--degrees), var(--myColor1) 0%, var(--myColor2) 100%);
+}
+
+#stylized:active {
+    --myColor1: rgba(34,193,195,1);
+    --myColor2: rgb(61, 243, 91);
+    --degrees: 45deg;
+    background: rgb(34,193,195);
+    background: linear-gradient(var(--degrees), var(--myColor1) 0%, var(--myColor2) 100%);
+}
+
+#esp {
+    background: rgb(113, 238, 240);
+    img {
+        width: 25%;
+        height: 25%;
+        animation: hover 3.5s ease-in-out infinite;
+    }
+}
+
+#race {
+    background: rgb(214, 65, 202);
+    overflow: hidden;
+    img {
+        width: 150%;
+        height: 100%;
+    }
+}
+
+@property --myColor1 {
+    syntax: '<color>';
+    initial-value: rgb(169, 156, 253);
+    inherits: false;
+  }
+  
+@property --myColor2 {
+    syntax: '<color>';
+    initial-value: rgb(29, 156, 253);
+    inherits: false;
+    }
+
+@property --myColor3 {
+    syntax: '<color>';
+    initial-value: rgb(175, 255, 212);
+    inherits: false;
+    }
+
+@property --degrees {
+    syntax: '*';
+    initial-value: 90deg;
+    inherits: false;
+    }
+
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: green; }
+    }
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+    }
+
+@keyframes hover {
+    from,to { transform: translate(0, 0);}
+    50% { transform: translate(0, -15px);}
+    }
+
+@font-face {
+    font-family: Terminus;
+    src: url(assets/TerminusTTFWindows-4.49.3.ttf);
+    }
